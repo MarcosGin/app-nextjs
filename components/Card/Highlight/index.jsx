@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 function Highlight(props) {
   const { title, thumbnail, section, date, url, assets = [] } = props.data;
@@ -13,36 +14,38 @@ function Highlight(props) {
 
   return (
     <article className="b-card m-card-gridView-medium-up m-card-home-news-top">
-      <a className="e-card-link" href={url}>
-        <div className="e-card-img-container">
-          <img className="e-card-img" src={thumbnail} alt="" />
+      <Link href="/[section]/[post]" as={url}>
+        <a className="e-card-link">
+          <div className="e-card-img-container">
+            <img className="e-card-img" src={thumbnail} alt="" />
 
-          <div className="b-multimedia-assets">
-            {showImages && (
-              <span className="e-card-photoGallery">
-                <i className="icon-photo_library" />
-              </span>
-            )}
-            {showVideos && (
-              <span className="e-card-video">
-                <i className="icon-play_arrow" />
-                <small className="e-card-video-duration">{firstVideoDuration}</small>
-              </span>
-            )}
+            <div className="b-multimedia-assets">
+              {showImages && (
+                <span className="e-card-photoGallery">
+                  <i className="icon-photo_library" />
+                </span>
+              )}
+              {showVideos && (
+                <span className="e-card-video">
+                  <i className="icon-play_arrow" />
+                  <small className="e-card-video-duration">{firstVideoDuration}</small>
+                </span>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="b-card-text-wrapper">
-          <p className="b-card-misc">
-            <span className="e-card-section">{section}</span>
-            <span className="e-card-time">
-              <i className="icon-clock" />
-              &nbsp;
-              <time className="timeago">{date}</time>
-            </span>
-          </p>
-          <h2 className="e-card-title">{title}</h2>
-        </div>
-      </a>
+          <div className="b-card-text-wrapper">
+            <p className="b-card-misc">
+              <span className="e-card-section">{section}</span>
+              <span className="e-card-time">
+                <i className="icon-clock" />
+                &nbsp;
+                <time className="timeago">{date}</time>
+              </span>
+            </p>
+            <h2 className="e-card-title">{title}</h2>
+          </div>
+        </a>
+      </Link>
     </article>
   );
 }
