@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Logo from "../Logo";
 
 function Menu(props) {
@@ -19,7 +20,9 @@ function Menu(props) {
             {items.map(item => {
               return (
                 <li key={item.text} className="menu_item">
-                  <a>{item.text}</a>
+                  <Link href="/[section]" as={item.link}>
+                    <a>{item.text}</a>
+                  </Link>
                 </li>
               );
             })}
