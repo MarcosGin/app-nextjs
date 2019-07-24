@@ -1,7 +1,20 @@
-.main_header {
-  background-color: $headerBg;
+/* Header styles */
 
-  .top_bar {
-    border-color: $headerSeparator;
+header.app-layout-header {
+  height: 60px;
+  line-height: 60px;
+  background-color: #1890ff;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
+
+@import "./Follow/styles";
+@import "./Logo/styles";
+@import "./Menu/styles";
+@import "./Search/styles";
+@import "./SubHeader/styles";
+@import "./Transmission/styles";

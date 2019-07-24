@@ -6,22 +6,21 @@ function Logo(props) {
 
   const renderLogo = () => {
     if (url) {
-      return (
-        <a className="telefe-logo" style={{ backgroundImage: `url(${url})` }}>
-          <h2>Telefe</h2>
-          {svg && svg}
-        </a>
-      );
+      return <a style={{ backgroundImage: `url(${url})` }} />;
     } else {
       return (
-        <a className="telefe-logo default-logo">
-          <h2>Telefe</h2>
+        <a>
+          <h2>Telefe Logo</h2>
         </a>
       );
     }
   };
 
-  return <Link href="/">{renderLogo()}</Link>;
+  return (
+    <div className="logo">
+      <Link href="/">{renderLogo()}</Link>
+    </div>
+  );
 }
 
 export default Logo;

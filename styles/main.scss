@@ -1,47 +1,10 @@
-/* Dependencies */
-@import "./vendor/foundation.css";
-@import "./vendor/foundation-xlarge-grid.css";
+//@import "~antd/dist/antd.less";
+body {
+  background-color: #ecf0f1 !important;
+}
+.container {
+  width: 920px;
+  margin: 0 auto;
+}
 
-/* Variables */
-@import "./sharing";
-
-/* Fonts and Icons*/
-@import "./fonts";
-
-/* Wrapper */
-@import "./wrapper";
-
-/* Colors */
-$headerBg: #350e67;
-$headerText: #fff;
-$headerSeparator: #350e67;
-$dropdownBg: #fff;
-$dropdownBorder: #350e67;
-$dropdownText: #350e67;
-$featuredCardBg: #350e67;
-$featuredCardText: #fff;
-$button: #350e67;
-$loading: #350e67;
-$mediaWrapperColor: #350e67;
-
-/* Home Page */
-@import "./home";
-
-@import "./global";
-/* Section Page */
-@import "./section";
-
-/* Header */
-@import "../templates/shared/Header/styles.scss";
-/* Menu */
-@import "../templates/shared/Header/Menu/styles.scss";
-
-/* Sub Header */
-@import "../templates/shared/Header/SubHeader/styles.scss";
-@import "../templates/shared/Header/Search/styles.scss";
-
-/* Global Card */
-@import "../components/Card/styles.scss";
-
-/* Hero Card */
-@import "../components/Card/Hero/styles.scss";
+@import "../templates/shared/Header/styles";

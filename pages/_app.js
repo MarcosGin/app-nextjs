@@ -1,7 +1,9 @@
 import React from "react";
 
 import "../styles/main.scss";
+
 import App, { Container } from "next/app";
+import { ConfigProvider } from "antd";
 
 class Application extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -61,7 +63,9 @@ class Application extends App {
 
     return (
       <Container>
-        <Component {...initialProps} />
+        <ConfigProvider prefixCls="app">
+          <Component {...initialProps} />
+        </ConfigProvider>
       </Container>
     );
   }
