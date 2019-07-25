@@ -18,7 +18,15 @@ class Application extends App {
           { text: "Política", link: "/politica" },
           { text: "Actualidad", link: "/actualidad" },
           { text: "Internacionales", link: "/internacionales" },
-          { text: "Deportes 2", link: "/deportes" }
+          { text: "Deportes", link: "/deportes" },
+          //Maybe this for more items
+          { text: "Economía", link: "/economia" },
+          { text: "Noticiero de la gente", link: "/noticiero-de-la-gente" },
+          { text: "Espectáculos", link: "/espectaculos" },
+          { text: "Curiosidades", link: "/curiosidades" },
+          { text: "Redes", link: "/redes" },
+          { text: "Tecno", link: "/tecno" },
+          { text: "MTV news", link: "/mtv-news" }
         ]
       },
       subHeader: {

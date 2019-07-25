@@ -39,29 +39,40 @@ class Menu extends React.Component {
     }
   };
 
-  showMoreItems = () => (
-    <MenuAntd>
-      <MenuAntd.Item>
-        <a>Section</a>
-      </MenuAntd.Item>
-    </MenuAntd>
-  );
+  showMoreItems = () => {
+    const items = this.props.items.slice(this.props.maxShowItems);
+    return (
+      <MenuAntd selectedKeys={this.state.currentRoute} onClick={this.onClickItem}>
+        {items.map(item => {
+          return (
+            <MenuAntd.Item key={item.link}>
+              <Link href="/[section]" as={item.link} prefetch={true}>
+                <a>{item.text}</a>
+              </Link>
+            </MenuAntd.Item>
+          );
+        })}
+      </MenuAntd>
+    );
+  };
 
   render() {
     const { activeRoutes } = this.state;
+    const { maxShowItems, keyShowMoreItems } = this.props;
+    const items = this.props.items.slice(0, maxShowItems);
     return (
       <nav>
         <MenuAntd mode="horizontal" selectedKeys={activeRoutes} onClick={this.onClickItem}>
-          {this.props.items.map(item => {
+          {items.map(item => {
             return (
               <MenuAntd.Item key={item.link}>
-                <Link href="/[section]" as={item.link}>
+                <Link href="/[section]" as={item.link} prefetch={true}>
                   <a>{item.text}</a>
                 </Link>
               </MenuAntd.Item>
             );
           })}
-          <MenuAntd.Item key={this.props.keyShowMoreItems}>
+          <MenuAntd.Item key={keyShowMoreItems}>
             <Dropdown
               overlay={this.showMoreItems}
               trigger={["click"]}
@@ -79,7 +90,8 @@ class Menu extends React.Component {
 }
 
 Menu.defaultProps = {
-  keyShowMoreItems: "showMoreSections"
+  keyShowMoreItems: "showMoreSections",
+  maxShowItems: 4
 };
 
 export default withRouter(Menu);
