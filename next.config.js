@@ -1,5 +1,6 @@
 const withSass = require("@zeit/next-sass");
 const withLess = require("@zeit/next-less");
+const withCss = require("@zeit/next-css");
 const withPlugins = require("next-compose-plugins");
 const lessToJS = require("less-vars-to-js");
 const fs = require("fs");
@@ -8,14 +9,6 @@ const path = require("path");
 const themeVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, "./styles/antd-custom.less"), "utf8")
 );
-
-/*module.exports = withSass(
-  withCSS({
-    cssLoaderOptions: {
-      url: false
-    }
-  })
-);*/
 
 const nextConfig = {
   webpack: (config, { isServer }) => {
@@ -54,7 +47,15 @@ module.exports = withPlugins(
         }
       }
     ],
-    [withSass]
+    [withSass],
+    [
+      withCss,
+      {
+        cssLoaderOptions: {
+          url: false
+        }
+      }
+    ]
   ],
   nextConfig
 );

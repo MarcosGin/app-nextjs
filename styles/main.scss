@@ -1,4 +1,20 @@
-//@import "~antd/dist/antd.less";
+@import "~nprogress/nprogress.css";
+
+#nprogress {
+  .bar {
+    background-color: #fff;
+  }
+
+  .peg {
+    box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+  }
+
+  .spinner-icon {
+    border-top-color: #fff;
+    border-left-color: #fff;
+  }
+}
+
 body {
   background-color: #ecf0f1 !important;
 }

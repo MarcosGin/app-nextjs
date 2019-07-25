@@ -1,9 +1,14 @@
 import React from "react";
+import App, { Container } from "next/app";
+import { ConfigProvider } from "antd";
+import { Router } from "next/router";
+import NProgress from "nprogress";
 
 import "../styles/main.scss";
 
-import App, { Container } from "next/app";
-import { ConfigProvider } from "antd";
+Router.events.on("routeChangeStart", url => NProgress.start());
+Router.events.on("routeChangeError", (err, url) => NProgress.done());
+Router.events.on("routeChangeComplete", url => NProgress.done());
 
 class Application extends App {
   static async getInitialProps({ Component, ctx }) {
