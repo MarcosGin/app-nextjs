@@ -7,12 +7,15 @@ import Logo from "./Logo";
 class Header extends React.Component {
   render() {
     return (
-      <Layout.Header>
-        <div className="container">
-          <Logo url={this.props.logo} svg={this.props.svgLogo} />
-          <Menu items={this.props.menu.items} socialLinks={this.props.subHeader.socialLinks} />
-        </div>
-      </Layout.Header>
+      <>
+        <Layout.Header>
+          <div className="container">
+            <Logo url={this.props.logo} svg={this.props.svgLogo} />
+            <Menu items={this.props.menu.items} />
+          </div>
+        </Layout.Header>
+        <SubHeader {...this.props.subHeader} />
+      </>
     );
   }
 }

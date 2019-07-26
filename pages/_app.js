@@ -41,17 +41,16 @@ class Application extends App {
           value: "El noticiero de la gente",
           link: "/vivo"
         },
-        /*
-        transmission: {
-          type: "nextLive",
-          text: "Próximo en vivo",
-          value: {
-            time: "20:00",
-            name: ""
-          }
-        },
-        */
-        /*transmission: { today: new Date().toLocaleDateString()},*/
+
+        // transmission: {
+        //   type: "nextLive",
+        //   text: "Próximo en vivo",
+        //   value: {
+        //     time: "20:00",
+        //     name: ""
+        //   }
+        // },
+        // transmission: { value: { time: "Jueves 2, 13:00hs" } },
 
         search: true,
         socialLinks: [

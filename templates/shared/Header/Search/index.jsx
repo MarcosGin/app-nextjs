@@ -1,18 +1,10 @@
 import React from "react";
+import { Input } from "antd";
+
+const { Search: SearchAntd } = Input;
 
 function Search() {
-  return (
-    <form className="b-search" action="/buscador">
-      <label htmlFor="search" className="e-search-text-input-label">
-        Buscar:
-      </label>
-      <input type="search" className="e-search-text-input" name="q" id="search" />
-      <button type="submit" className="e-search-button">
-        <i className="icon-search" />
-        <span>Enviar</span>
-      </button>
-    </form>
-  );
+  return <SearchAntd placeholder="Busca lo que quieras.." />;
 }
 
 export default Search;

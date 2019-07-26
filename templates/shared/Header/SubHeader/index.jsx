@@ -6,11 +6,10 @@ import Follow from "../Follow";
 function SubHeader(props) {
   const { transmission, socialLinks } = props;
   return (
-    <div className="sub_header">
-      <div className="sub_header_container">
+    <div className="app-sub-header">
+      <div className="container">
         <Transmission data={transmission} />
-
-        <div className="b-main-menu-side-bar">
+        <div className="app-search-follow-righ">
           <Search />
           <Follow socials={socialLinks} />
         </div>
