@@ -1,19 +1,21 @@
 import React from "react";
-import Hero from "./Hero";
-import Highlight from "./Highlight";
-import Standard from "./Standard";
+import Link from "next/link";
+import ImgContainer from "./ImgContainer";
+import TextContainer from "./TextContainer";
 
 function Card(props) {
-  const { type } = props;
+  const { title, thumbnail, section, date, url, assets = [] } = props;
 
-  switch (type) {
-    case "hero":
-      return <Hero data={props.data} />;
-    case "highlight":
-      return <Highlight data={props.data} />;
-    default:
-      return <Standard data={props.data} />;
-  }
+  return (
+    <article className="app-card ">
+      <Link href="/[section]/[post]" as={url}>
+        <a>
+          <ImgContainer thumbnail={thumbnail} assets={assets} />
+          <TextContainer title={title} section={section} date={date} />
+        </a>
+      </Link>
+    </article>
+  );
 }
 
 export default Card;

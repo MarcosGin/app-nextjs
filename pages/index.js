@@ -18,9 +18,6 @@ class Index extends React.Component {
   render() {
     return (
       <BaseLayout {...this.props}>
-        <section className="custom-html">
-          <div className="wrapper m-push-sidebar" />
-        </section>
         <MainPosts posts={this.props.mainPosts} />
       </BaseLayout>
     );

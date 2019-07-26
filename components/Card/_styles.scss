@@ -1,0 +1,52 @@
+.app-card {
+  background-color: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  a {
+    display: block;
+    width: 100%;
+    height: 434px;
+  }
+
+  .app-card-img-container {
+    position: relative;
+
+    .app-card-assets {
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      max-height: 100%;
+      max-width: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      span {
+        bottom: 8px;
+        color: #fff;
+        font-size: 150%;
+        left: 16px;
+        position: absolute;
+
+        i {
+          vertical-align: middle;
+        }
+
+        small {
+          font-size: 14px;
+          vertical-align: middle;
+          text-shadow: 0 1px 1px #000;
+        }
+
+        &:first-child + span {
+          left: 40px;
+        }
+      }
+    }
+  }
+
+  .app-card-text-container {
+    padding: 16px;
+  }
+}

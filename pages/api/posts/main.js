@@ -8,7 +8,8 @@ export default (req, res) => {
         section: "Política",
         date: "2019-07-17 09:41:26",
         assets: {
-          videos: [{ url: "onevideo", duration: "01:40" }, { url: "twovideo", duration: "04:50" }]
+          videos: [{ url: "onevideo", duration: "01:40" }, { url: "twovideo", duration: "04:50" }],
+          images: [{ url: "onevideo" }, { url: "twovideo" }]
         },
         url: "/politica/hezbollah-es-considerado-grupo-terrorista-por-argentina/"
       }

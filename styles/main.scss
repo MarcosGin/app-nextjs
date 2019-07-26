@@ -18,9 +18,16 @@
 body {
   background-color: #ecf0f1 !important;
 }
+
+img {
+  width: 100%;
+}
+
 .container {
   width: 920px;
   margin: 0 auto;
 }
 
 @import "../templates/shared/Header/styles";
+
+@import "../components/Card/styles";
