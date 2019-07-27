@@ -1,0 +1,24 @@
+.app-card-text-container {
+  padding: 16px;
+
+  .app-card-text-header {
+    margin-bottom: 7px;
+    color: #303030;
+    font-size: 12px;
+
+    .app-card-text-time {
+      margin-left: 5px;
+
+      i {
+        padding-right: 2px;
+      }
+    }
+  }
+
+  .app-card-text-title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+}

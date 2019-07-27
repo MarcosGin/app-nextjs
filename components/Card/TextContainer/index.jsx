@@ -9,10 +9,10 @@ function TextContainer(props) {
         <span className="app-card-text-section">{section}</span>
         <span className="app-card-text-time">
           <Icon type="history" />
-          <small>{date}</small>
+          <span>{date}</span>
         </span>
       </p>
-      <h2 className="e-hero-card-title">{title}</h2>
+      <h2 className="app-card-text-title">{title}</h2>
     </div>
   );
 }

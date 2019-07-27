@@ -8,7 +8,7 @@ function ImgContainer(props) {
   } = props;
   const showGallery = images && images.length > 1;
   const showPlay = videos && videos.length > 0;
-  const firstVideoDuration = showPlay ? videos.shift().duration : false;
+  const firstVideoDuration = showPlay ? videos[0].duration : false;
   return (
     <div className="app-card-img-container">
       <img src={thumbnail} alt="" />
