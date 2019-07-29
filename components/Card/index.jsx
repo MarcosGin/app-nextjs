@@ -4,10 +4,10 @@ import ImgContainer from "./ImgContainer";
 import TextContainer from "./TextContainer";
 
 function Card(props) {
-  const { title, thumbnail, section, date, url, assets = [] } = props;
+  const { title, thumbnail, section, date, url, assets, type } = props;
 
   return (
-    <article className="app-card ">
+    <article className={`app-card ${type} `}>
       <Link href="/[section]/[post]" as={url}>
         <a>
           <ImgContainer thumbnail={thumbnail} assets={assets} />
@@ -18,4 +18,8 @@ function Card(props) {
   );
 }
 
+Card.defaultProps = {
+  assets: [],
+  type: "standard"
+};
 export default Card;

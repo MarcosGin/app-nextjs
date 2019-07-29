@@ -14,13 +14,13 @@ class MainPosts extends React.Component {
   }
 
   renderHighlightCard() {
-    return (
-      <Col sm={24} md={24} lg={12}>
-        {this.props.posts.highlights.top.map((post, key) => {
-          return <Card {...post} type="highlight" key={key} />;
-        })}
-      </Col>
-    );
+    return this.props.posts.highlights.top.map((post, key) => {
+      return (
+        <Col sm={24} md={24} lg={12}>
+          <Card {...post} type="highlight" key={key} />
+        </Col>
+      );
+    });
   }
 
   renderStandardCard() {

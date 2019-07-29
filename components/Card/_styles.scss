@@ -7,7 +7,18 @@
   a {
     display: block;
     width: 100%;
+  }
+
+  &.hero {
     height: 434px;
+  }
+
+  &.highlight {
+    height: 134px;
+  }
+
+  &.standard {
+    height: 338px;
   }
 }
 
