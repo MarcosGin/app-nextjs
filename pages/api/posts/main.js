@@ -21,7 +21,7 @@ export default (req, res) => {
           thumbnail:
             "https://telefe-static2.akamaized.net/media/181250/vidriera-venta-animales.jpg?v=20190717084709000&format=large&width=460&height=259&mode=crop",
           section: "Actualidad",
-          date: "2019-07-17 09:15:40",
+          date: "Hace 1 hora",
           assets: {
             videos: [{ url: "onevideo", duration: "04:04" }]
           },
@@ -32,7 +32,7 @@ export default (req, res) => {
           thumbnail:
             "https://telefe-static2.akamaized.net/media/181238/villa-urquiza.jpg?v=20190717075116000&format=large&width=460&height=259&mode=crop",
           section: "Actualidad",
-          date: "2019-07-17 07:53:29",
+          date: "Hace 3 horas",
           url: "/actualidad/una-mujer-murio-al-incendiarse-su-casa-en-villa-urquiza/"
         },
         {
@@ -40,7 +40,7 @@ export default (req, res) => {
           thumbnail:
             "https://telefe-static2.akamaized.net/media/181236/247.jpg?v=20190717074619000&format=large&width=460&height=259&mode=crop",
           section: "Actualidad",
-          date: "2018-12-07 15:20:40",
+          date: "Hace 5 horas",
           url: "/actualidad/le-cortaron-el-cuello-a-un-colectivero-para-robarle/"
         }
       ],
