@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../Card";
+import CardList from "../CardList";
 import { Row } from "antd";
 
 class MainPosts extends React.Component {
@@ -11,9 +11,9 @@ class MainPosts extends React.Component {
       <section className="mainPosts">
         <div className="container">
           <Row gutter={16}>
-            <Card type="hero" data={hero} />
-            <Card type="highlight" data={highlights.top} />
-            <Card data={highlights.bottom} />
+            <CardList type="hero" data={hero} />
+            <CardList type="highlight" data={highlights.top} />
+            <CardList data={highlights.bottom} />
           </Row>
         </div>
       </section>

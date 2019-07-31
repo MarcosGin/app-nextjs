@@ -2,10 +2,9 @@ import React from "react";
 import Link from "next/link";
 import ImgContainer from "./ImgContainer";
 import TextContainer from "./TextContainer";
-import { Col } from "antd";
 
-function Card({ data, type, responsive }) {
-  const getComponent = ({ title, thumbnail, section, url, assets = [], date }) => (
+function Card({ title, thumbnail, section, url, assets = [], date, type }) {
+  return (
     <article className={`app-card ${type}`}>
       <Link href="/[section]/[post]" as={url}>
         <a>
@@ -15,16 +14,16 @@ function Card({ data, type, responsive }) {
       </Link>
     </article>
   );
-
-  return data.map(item => <Col {...responsive[type]} className="app-card-container">{getComponent(item)}</Col>);
 }
 
 Card.defaultProps = {
-  type: "standard",
-  responsive: {
-    standard: { lg: 8 },
-    hero: { sm: 24, md: 24, lg: 12 },
-    highlight: { sm: 24, md: 24, lg: 12 }
-  }
+  title: "",
+  thumbnail: "",
+  section: "",
+  url: "",
+  assets: "",
+  date: "",
+  type: "standard"
 };
+
 export default Card;
