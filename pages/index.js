@@ -1,24 +1,27 @@
 import React from "react";
 import axios from "axios";
 import BaseLayout from "../templates/layouts/BaseLayout";
-import MainPosts from "../components/MainPosts";
+import SectionCard from "../components/SectionCard";
+import Item from "antd/lib/list/Item";
 
 class Index extends React.Component {
   static async getInitialProps() {
-    const mainPosts = await axios.get("http://localhost:3000/api/posts/main");
+    const { data: sectionsData } = await axios.get("http://localhost:3000/api/sections/home");
     return {
-      mainPosts: mainPosts.data
+      sectionsData
     };
   }
 
   constructor(props) {
     super(props);
   }
-  /* Check for what is customHTML*/
+
   render() {
     return (
       <BaseLayout {...this.props}>
-        <MainPosts posts={this.props.mainPosts} />
+        {this.props.sectionsData.map(section => {
+          return <SectionCard {...section} key={section.id} />;
+        })}
       </BaseLayout>
     );
   }

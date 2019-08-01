@@ -4,7 +4,7 @@ import Card from "../Card";
 
 function CardList({ data, type, responsive }) {
   return data.map(item => (
-    <Col {...responsive[type]} className="app-card-container">
+    <Col {...responsive[type]} className="app-card-container" key={item.url}>
       <Card {...item} type={type} />
     </Col>
   ));
