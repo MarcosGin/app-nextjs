@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-    <msapplication>
-        <tile>
-            <square150x150logo src="https://telefe-static2.akamaized.net/assets/noticias/3.74.01/static/noticias/favicon/mstile-150x150.png"/>
-            <TileColor>#ffffff</TileColor>
-        </tile>
-    </msapplication>
-</browserconfig>

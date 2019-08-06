@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import BaseLayout from "../templates/layouts/BaseLayout";
 import SectionCard from "../components/SectionCard";
-import Item from "antd/lib/list/Item";
 
 class Index extends React.Component {
   static async getInitialProps() {
@@ -18,7 +17,7 @@ class Index extends React.Component {
 
   render() {
     return (
-      <BaseLayout {...this.props}>
+      <BaseLayout {...this.props} title="Home">
         {this.props.sectionsData.map(section => {
           return <SectionCard {...section} key={section.id} />;
         })}
