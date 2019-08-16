@@ -1,0 +1,164 @@
+@import "~video.js/dist/video-js.min.css";
+
+.video-js {
+  &.vjs-has-started {
+    .vjs-control-bar {
+      display: block;
+    }
+  }
+  .vjs-control-bar {
+    background: linear-gradient(
+      to bottom,
+      transparent 0,
+      rgba(0, 0, 0, 0.48) 39%,
+      rgba(0, 0, 0, 0.65) 95%,
+      rgba(0, 0, 0, 0.71) 100%
+    );
+    height: 40px;
+    padding: 0 3%;
+
+    .vjs-progress-control {
+      display: -webkit-box;
+      -webkit-box-flex: 1;
+      position: absolute;
+      height: 16px;
+      width: 94%;
+      top: -16px;
+      left: 0;
+      margin: 0 3%;
+
+      &:hover {
+        .vjs-progress-holder .vjs-play-progress:before {
+          transform: scale(5);
+          opacity: 1;
+        }
+      }
+      .vjs-slider:focus {
+        text-shadow: none;
+        box-shadow: none;
+        outline: none;
+      }
+
+      .vjs-progress-holder {
+        display: -webkit-box;
+        -webkit-box-flex: 1;
+        margin: 0;
+        width: 100%;
+        height: 16px;
+        background-color: transparent;
+
+        &:before {
+          background-color: rgba(255, 255, 255, 0.2);
+          content: "";
+          height: 5px;
+          left: 0;
+          position: absolute;
+          top: 10px;
+          width: 100%;
+          border: 0;
+        }
+
+        .vjs-play-progress {
+          &:before {
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            transform-origin: center;
+            width: 2px;
+            height: 2px;
+            opacity: 0;
+            content: "";
+            right: 0;
+            top: 1px;
+          }
+
+          .vjs-time-tooltip {
+            background-color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+              "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+              "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          }
+        }
+
+        .vjs-load-progress,
+        .vjs-play-progress {
+          height: 5px;
+          top: 10px;
+        }
+      }
+    }
+
+    .vjs-play-control,
+    .vjs-volume-panel,
+    .vjs-current-time,
+    .vjs-time-divider,
+    .vjs-duration {
+      float: left;
+    }
+
+    .vjs-quality-selector {
+      float: right;
+    }
+
+    .vjs-time-control {
+      display: block;
+    }
+    .vjs-remaining-time {
+      display: none;
+    }
+
+    .vjs-quality-selector {
+      &.vls-quality-selected-hd::before {
+        content: "HD";
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+        // font-family: VideoJS;
+        // font-weight: 400;
+        // font-style: normal;
+        // content: "\F114";
+        // z-index: 2;
+        font-size: 1em;
+        font-weight: 700;
+        position: absolute;
+        top: 1px;
+        right: 2px;
+        color: #ff484a;
+      }
+
+      .vjs-menu {
+        width: 8em;
+        left: -2em;
+        margin-bottom: 2em;
+        .vjs-menu-content {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+            "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          max-height: 18em;
+          border-radius: 3px;
+          background-color: #8d9194b3;
+          background-color: rgba(141, 145, 148, 0.7);
+
+          .vjs-menu-item {
+            position: relative;
+            transition: all 1s;
+            &:hover {
+              background-color: rgba(231, 233, 235, 0.58);
+            }
+
+            &.is-hd::before {
+              font-family: VideoJS;
+              font-weight: 400;
+              font-style: normal;
+              content: "\F114";
+              font-size: 1.2em;
+              position: absolute;
+              right: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

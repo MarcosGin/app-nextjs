@@ -12,6 +12,11 @@ const themeVariables = lessToJS(
 
 const nextConfig = {
   webpack: (config, { isServer }) => {
+    config.resolve.alias["playerQualitySelector"] = path.join(
+      __dirname,
+      "components/Player/plugins/playerQualitySelector.js"
+    );
+
     if (isServer) {
       const antStyles = /antd\/.*?\/style.*?/;
       const origExternals = [...config.externals];
