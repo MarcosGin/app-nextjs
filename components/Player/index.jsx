@@ -5,6 +5,18 @@ import "videojs-selector-quality-hls";
 
 class Player extends React.Component {
   componentDidMount() {
+    this.loadPlayer();
+    this.handleEvents();
+  }
+
+  componentWillUnmount() {
+    if (this.player) {
+      this.player.selectorQuality().dispose();
+      this.player.dispose();
+    }
+  }
+
+  loadPlayer() {
     const { ads, sources, options, controlBarOrder } = this.props;
     this.player = videojs(
       this.videoNode,
@@ -17,13 +29,6 @@ class Player extends React.Component {
         this.selectorQuality();
       }
     );
-  }
-
-  componentWillUnmount() {
-    if (this.player) {
-      this.player.selectorQuality().dispose();
-      this.player.dispose();
-    }
   }
 
   render() {
