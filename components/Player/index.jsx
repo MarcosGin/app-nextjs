@@ -1,8 +1,7 @@
 import React from "react";
 import videojs from "video.js";
-import "playerQualitySelector";
-// import "videojs-contrib-quality-levels"; // register plugin
-// import "videojs-hls-quality-selector";
+import "videojs-contrib-quality-levels";
+import "videojs-selector-quality-hls";
 
 class Player extends React.Component {
   componentDidMount() {
@@ -15,22 +14,25 @@ class Player extends React.Component {
         controlBar: { children: controlBarOrder }
       },
       function onPlayerReady() {
-        this.hlsQualitySelector();
+        this.selectorQuality();
       }
     );
   }
 
   componentWillUnmount() {
     if (this.player) {
-      // this.player.hlsQualitySelector().dispose();
+      this.player.selectorQuality().dispose();
       this.player.dispose();
     }
   }
 
   render() {
     return (
-      <div data-vjs-player>
-        <video ref={node => (this.videoNode = node)} className="video-js vjs-default-skin" />
+      <div className="player-container">
+        <div className="player-overlay"></div>
+        <div data-vjs-player>
+          <video ref={node => (this.videoNode = node)} className="video-js vjs-default-skin" />
+        </div>
       </div>
     );
   }
