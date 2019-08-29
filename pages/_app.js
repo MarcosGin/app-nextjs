@@ -1,5 +1,5 @@
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import { ConfigProvider } from "antd";
 import { Router } from "next/router";
 import NProgress from "nprogress";
@@ -74,11 +74,9 @@ class Application extends App {
     const { Component, initialProps } = this.props;
 
     return (
-      <Container>
-        <ConfigProvider prefixCls="app">
-          <Component {...initialProps} />
-        </ConfigProvider>
-      </Container>
+      <ConfigProvider prefixCls="app">
+        <Component {...initialProps} />
+      </ConfigProvider>
     );
   }
 }

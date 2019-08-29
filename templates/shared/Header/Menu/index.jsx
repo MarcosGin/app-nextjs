@@ -46,7 +46,7 @@ class Menu extends React.Component {
         {items.map(item => {
           return (
             <MenuAntd.Item key={item.link}>
-              <Link href="/[section]" as={item.link} prefetch={true}>
+              <Link href="/[section]" as={item.link}>
                 <a>{item.text}</a>
               </Link>
             </MenuAntd.Item>
@@ -66,7 +66,7 @@ class Menu extends React.Component {
           {items.map(item => {
             return (
               <MenuAntd.Item key={item.link}>
-                <Link href="/[section]" as={item.link} prefetch={true}>
+                <Link href="/[section]" as={item.link}>
                   <a>{item.text}</a>
                 </Link>
               </MenuAntd.Item>
