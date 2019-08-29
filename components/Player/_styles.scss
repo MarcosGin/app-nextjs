@@ -1,9 +1,13 @@
 @import "./VideoJS/styles";
 @import "./Overlay/styles";
+
 // Player component
-.player-container {
-  background-color: #000;
-  min-height: 540px;
-  position: relative;
+.player {
   margin-bottom: 100px;
+
+  .player-container {
+    background-color: #000000;
+    min-height: 540px;
+    position: relative;
+  }
 }

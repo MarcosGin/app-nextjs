@@ -1,4 +1,4 @@
-export const STATUS_READY = "ready";
+export const STATUS_LOADED = "loaded";
 export const STATUS_LOADING = "loading";
 export const STATUS_PLAYING = "playing";
 export const STATUS_WAITING = "waiting";

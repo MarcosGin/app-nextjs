@@ -56,6 +56,10 @@ class VideoJSPlayer extends React.Component {
   /**
    * Player funcionality
    */
+  load = video => {
+    this.player.src(video);
+  };
+
   play = () => {
     this.player.play();
   };

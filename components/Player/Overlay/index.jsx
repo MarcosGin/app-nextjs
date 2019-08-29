@@ -4,12 +4,11 @@ import * as config from "../config";
 import { Icon } from "antd";
 
 const Overlay = ({ status, onPlay, onPause }) => {
-  console.log(status);
   if (!status) return null;
 
   const onClick = () => {
     switch (status) {
-      case config.STATUS_READY:
+      case config.STATUS_LOADED:
       case config.STATUS_PAUSE:
         onPlay();
         break;
@@ -22,7 +21,7 @@ const Overlay = ({ status, onPlay, onPause }) => {
 
   const showContent = () => {
     switch (status) {
-      case config.STATUS_READY:
+      case config.STATUS_LOADED:
       case config.STATUS_PAUSE:
         return <Icon type="play-circle" />;
 

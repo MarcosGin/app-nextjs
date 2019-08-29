@@ -26,11 +26,28 @@ class Index extends React.Component {
         <section>
           <div className="container">
             <Player
-              sources={[
+              playlist={[
                 {
-                  src:
-                    "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
-                  type: "application/x-mpegURL"
+                  id: 1,
+                  title: "Item 1 - Playlist",
+                  sources: [
+                    {
+                      src: "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8",
+
+                      type: "application/x-mpegURL"
+                    }
+                  ]
+                },
+                {
+                  id: 2,
+                  title: "Item 2 - Playlist",
+                  sources: [
+                    {
+                      src:
+                        "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
+                      type: "application/x-mpegURL"
+                    }
+                  ]
                 }
               ]}
             />
