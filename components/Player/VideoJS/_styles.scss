@@ -8,7 +8,8 @@
       display: block;
     }
   }
-  .vjs-big-play-button {
+  .vjs-big-play-button,
+  .vjs-loading-spinner {
     display: none;
   }
   .vjs-control-bar {
@@ -20,6 +21,7 @@
       rgba(0, 0, 0, 0.71) 100%
     );
     height: 40px;
+    z-index: 2;
     padding: 0 3%;
 
     .vjs-progress-control {
@@ -112,9 +114,4 @@
       display: none;
     }
   }
-}
-
-// Player component
-.player-container {
-  background-color: #000;
 }

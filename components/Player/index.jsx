@@ -1,42 +1,72 @@
 import React from "react";
-import videojs from "video.js";
-import "videojs-contrib-quality-levels";
-import "videojs-selector-quality-hls";
+import VideoJSPlayer from "./VideoJS";
+import Overlay from "./Overlay";
+
+import * as config from "./config";
 
 class Player extends React.Component {
-  componentDidMount() {
-    this.loadPlayer();
-    this.handleEvents();
-  }
+  state = {
+    status: config.STATUS_LOADING
+  };
 
-  componentWillUnmount() {
-    if (this.player) {
-      this.player.selectorQuality().dispose();
-      this.player.dispose();
-    }
-  }
+  onLoad = () => {
+    this.updateStatus(config.STATUS_LOADING);
+  };
 
-  loadPlayer() {
-    const { ads, sources, options, controlBarOrder } = this.props;
-    this.player = videojs(
-      this.videoNode,
-      {
-        sources,
-        ...options,
-        controlBar: { children: controlBarOrder }
-      },
-      function onPlayerReady() {
-        this.selectorQuality();
-      }
-    );
-  }
+  onLoaded = () => {
+    this.updateStatus(config.STATUS_READY);
+  };
+
+  onPlay = () => {
+    this.updateStatus(config.STATUS_PLAYING);
+  };
+
+  onPause = () => {
+    this.updateStatus(config.STATUS_PAUSE);
+  };
+
+  onWaiting = () => {
+    this.updateStatus(config.STATUS_WAITING);
+  };
+
+  onError = () => {
+    this.updateStatus(config.STATUS_ERROR);
+  };
+
+  /**
+   * Overlay funcionality
+   */
+  onPlayOverlay = () => {
+    this.player.play();
+  };
+  onPauseOverlay = () => {
+    this.player.pause();
+  };
+
+  updateStatus = status => this.setState({ status });
 
   render() {
     return (
       <div className="player-container">
-        <div className="player-overlay"></div>
-        <div data-vjs-player>
-          <video ref={node => (this.videoNode = node)} className="video-js vjs-default-skin" />
+        <Overlay
+          status={this.state.status}
+          onPlay={this.onPlayOverlay}
+          onPause={this.onPauseOverlay}
+        />
+
+        <div className="player-video">
+          <VideoJSPlayer
+            {...this.props}
+            onLoad={this.onLoad}
+            onLoaded={this.onLoaded}
+            onPlay={this.onPlay}
+            onPause={this.onPause}
+            onWaiting={this.onWaiting}
+            onError={this.onError}
+            ref={instance => {
+              this.player = instance;
+            }}
+          />
         </div>
       </div>
     );
