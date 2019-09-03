@@ -84,7 +84,11 @@ class Player extends React.Component {
             />
           </div>
         </div>
-        <Playlist items={this.props.playlist} onClick={this.onClickPlaylistItem} />
+        <Playlist
+          title="Más videos"
+          items={this.props.playlist}
+          onClick={this.onClickPlaylistItem}
+        />
       </div>
     );
   }

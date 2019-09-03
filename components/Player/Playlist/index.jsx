@@ -1,13 +1,15 @@
 import React from "react";
+import PlaylistItem from "./PlaylistItem";
 
-const Playlist = ({ items, onClick }) => {
+const Playlist = ({ title, items, onClick }) => {
   return (
     <div className="player-playlist">
-      {items.map((item, index) => (
-        <div className="playlist-item" key={item.id} onClick={() => onClick(index)}>
-          <h4>{item.title}</h4>
-        </div>
-      ))}
+      <div className="player-playlist-title">{title}</div>
+      <ul>
+        {items.map((item, index) => (
+          <PlaylistItem key={item.id} {...item} onClickItem={onClick} index={index} />
+        ))}
+      </ul>
     </div>
   );
 };
