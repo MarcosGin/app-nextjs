@@ -2,30 +2,20 @@ import React from "react";
 import { withRouter } from "next/router";
 import axios from "axios";
 
-import BaseLayout from "../../templates/layouts/BaseLayout";
-import SectionPosts from "../../components/SectionPosts";
+import BasePage from "../../templates/layouts/BasePage";
 
 class Section extends React.Component {
   static async getInitialProps({ query }) {
     const { section } = query;
-    const sectionData = await axios.get(`http://localhost:3000/api/${section}`);
+    const { data: page } = await axios.get(`http://localhost:3000/api/section/${section}`);
+
     return {
-      sectionData: sectionData.data
+      page
     };
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    return (
-      <BaseLayout {...this.props}>
-        <div className="section ">
-          <SectionPosts {...this.props.sectionData} />
-        </div>
-      </BaseLayout>
-    );
+    return <BasePage page={this.props.page}></BasePage>;
   }
 }
 

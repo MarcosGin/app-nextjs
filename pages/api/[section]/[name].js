@@ -56,8 +56,72 @@ export default (req, res) => {
       ]
     }
   };
-  if (sections[req.query.section]) {
-    res.json(sections[req.query.section]);
+  const sectionSelected = sections[req.query.name];
+  if (sectionSelected) {
+    res.json({
+      type: "Page",
+      props: {
+        head: {
+          title: "Section Page - Load Dynamic"
+        }
+      },
+      children: [
+        {
+          type: "Header",
+          props: {
+            logo:
+              "https://telefe-static2.akamaized.net/media/12531/logo-noticias.svg?v=20180719132831000",
+            menu: [
+              { text: "Política", link: "/politica" },
+              { text: "Actualidad", link: "/actualidad" },
+              { text: "Internacionales", link: "/internacionales" },
+              { text: "Deportes", link: "/deportes" },
+              { text: "Economía", link: "/economia" },
+              { text: "Noticiero de la gente", link: "/noticiero-de-la-gente" },
+              { text: "Espectáculos", link: "/espectaculos" },
+              { text: "Curiosidades", link: "/curiosidades" },
+              { text: "Redes", link: "/redes" },
+              { text: "Tecno", link: "/tecno" },
+              { text: "MTV news", link: "/mtv-news" }
+            ],
+            subHeader: {
+              transmission: {
+                type: "live",
+                text: "Ahora en vivo",
+                value: "El noticiero de la gente",
+                link: "/vivo"
+              },
+
+              // transmission: {
+              //   type: "nextLive",
+              //   text: "Próximo en vivo",
+              //   value: {
+              //     time: "20:00",
+              //     name: ""
+              //   }
+              // },
+              // transmission: { value: { time: "Jueves 2, 13:00hs" } },
+
+              search: true,
+              socialLinks: [
+                { type: "facebook", value: "http://facebook.com/telefenoticias" },
+                { type: "twitter", value: "http://twitter.com/telefenoticias" },
+                { type: "youtube", value: "http://youtube.com/telefenoticias" },
+                { type: "instagram", value: "http://instagram.com/telefenoticias" },
+                { type: "contact", value: "/contacto" }
+              ]
+            }
+          }
+        },
+        {
+          type: "SectionPosts",
+          props: {
+            ...sectionSelected
+          },
+          children: []
+        }
+      ]
+    });
   } else {
     res.json({ title: "Not found section", posts: [] });
   }

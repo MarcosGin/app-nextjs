@@ -3,18 +3,22 @@ import components from "../index";
 
 class DynamicComponent extends React.Component {
   createElement = ({ type, props, children = [], container = {} }) => {
+    const component = components[type];
+    if (!component) return null; // Component not found
+
     const element = React.createElement(
-      components[type],
+      component,
       props,
       children ? this.createChildren(children) : []
     );
 
-    if (container && container.element) {
+    const { element: elemContainer, classNames } = container;
+    if (elemContainer) {
       const props = {};
-      if (container.classNames) props.className = container.classNames;
+      if (classNames) props.className = classNames;
 
-      const containerElement = React.createElement(container.element, props, element);
-      return containerElement;
+      const fatherElement = React.createElement(elemContainer, props, element);
+      return fatherElement;
     }
 
     return element;
