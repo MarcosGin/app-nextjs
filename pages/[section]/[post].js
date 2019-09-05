@@ -3,8 +3,6 @@ import Router, { withRouter } from "next/router";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroller";
 
-import BaseLayout from "../../templates/layouts/BaseLayout";
-
 class Post extends React.Component {
   static async getInitialProps({ query }) {
     const { section, post } = query;
@@ -42,30 +40,31 @@ class Post extends React.Component {
   render() {
     const { showPosts, showMorePost } = this.state;
     return (
-      <BaseLayout {...this.props}>
-        <InfiniteScroll loadMore={this.showMorePosts} hasMore={showMorePost}>
-          <div className="posts">
-            {showPosts.map((post, key) => {
-              return (
-                <div className="post" key={key} style={{ height: "1300px" }}>
-                  <div className="wrapper wrapper_post m-push-sidebar">
-                    <article className="b-post">
-                      <div className="row">
-                        <div className="small-12">
-                          <img src={post.thumbnail} style={{ width: "100%" }} />
-                        </div>
-                        <div className="small-12 xlarge-8 xlarge-offset-2 large-8 large-offset-2 columns" />
-                        <div className="small-12 medium-12 large-2 xlarge-2 large-offset-2 xlarge-offset-2 columns" />
-                        <div className="small-12 medium-12 large-6 columns " />
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </InfiniteScroll>
-      </BaseLayout>
+      // <BaseLayout {...this.props}>
+      //   <InfiniteScroll loadMore={this.showMorePosts} hasMore={showMorePost}>
+      //     <div className="posts">
+      //       {showPosts.map((post, key) => {
+      //         return (
+      //           <div className="post" key={key} style={{ height: "1300px" }}>
+      //             <div className="wrapper wrapper_post m-push-sidebar">
+      //               <article className="b-post">
+      //                 <div className="row">
+      //                   <div className="small-12">
+      //                     <img src={post.thumbnail} style={{ width: "100%" }} />
+      //                   </div>
+      //                   <div className="small-12 xlarge-8 xlarge-offset-2 large-8 large-offset-2 columns" />
+      //                   <div className="small-12 medium-12 large-2 xlarge-2 large-offset-2 xlarge-offset-2 columns" />
+      //                   <div className="small-12 medium-12 large-6 columns " />
+      //                 </div>
+      //               </article>
+      //             </div>
+      //           </div>
+      //         );
+      //       })}
+      //     </div>
+      //   </InfiniteScroll>
+      // </BaseLayout>
+      <div></div>
     );
   }
 }

@@ -1,6 +1,7 @@
 const withSass = require("@zeit/next-sass");
 const withLess = require("@zeit/next-less");
 const withCss = require("@zeit/next-css");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const withPlugins = require("next-compose-plugins");
 const lessToJS = require("less-vars-to-js");
 const fs = require("fs");
@@ -11,7 +12,10 @@ const themeVariables = lessToJS(
 );
 
 const nextConfig = {
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
+    config.plugins = config.plugins || [];
+    config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
+
     if (isServer) {
       const antStyles = /antd\/.*?\/style.*?/;
       const origExternals = [...config.externals];
@@ -31,7 +35,14 @@ const nextConfig = {
         test: antStyles,
         use: "null-loader"
       });
+    } else {
+      // config.plugins.push(
+      //   new BundleAnalyzerPlugin({
+      //     generateStatsFile: true
+      //   })
+      // );
     }
+
     return config;
   }
 };

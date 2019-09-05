@@ -11,7 +11,7 @@ class Header extends React.Component {
         <Layout.Header>
           <div className="container">
             <Logo url={this.props.logo} svg={this.props.svgLogo} />
-            <Menu items={this.props.menu.items} />
+            <Menu items={this.props.menu} />
           </div>
         </Layout.Header>
         <SubHeader {...this.props.subHeader} />
