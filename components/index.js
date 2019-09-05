@@ -7,4 +7,4 @@ const Player = dynamic(() => import("./Player"));
 const SectionCard = dynamic(() => import("./SectionCard"));
 const SectionPosts = dynamic(() => import("./SectionPosts"));
 
-export default { Card, CardList, Header, Player, SectionPosts };
+export default { Card, CardList, Header, Player, SectionCard, SectionPosts };
