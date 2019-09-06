@@ -4,13 +4,13 @@ import Search from "../Search";
 import Follow from "../Follow";
 
 function SubHeader(props) {
-  const { transmission, socialLinks } = props;
+  const { transmission, socialLinks, search } = props;
   return (
     <div className="app-sub-header">
       <div className="container">
         <Transmission data={transmission} />
         <div className="app-search-follow-righ">
-          <Search />
+          {search && <Search />}
           <Follow socials={socialLinks} />
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
+import { withRouter } from "next/router";
 import Menu from "./Menu";
 import SubHeader from "./SubHeader";
 import Logo from "./Logo";
@@ -11,7 +12,7 @@ class Header extends React.Component {
         <Layout.Header>
           <div className="container">
             <Logo url={this.props.logo} svg={this.props.svgLogo} />
-            <Menu items={this.props.menu} />
+            <Menu items={this.props.menu} router={this.props.router} />
           </div>
         </Layout.Header>
         <SubHeader {...this.props.subHeader} />
@@ -20,4 +21,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

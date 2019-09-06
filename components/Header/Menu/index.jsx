@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { Menu as MenuAntd, Dropdown, Icon } from "antd";
-import { withRouter } from "next/router";
 
 class Menu extends React.Component {
   state = {
@@ -94,4 +93,4 @@ Menu.defaultProps = {
   maxShowItems: 4
 };
 
-export default withRouter(Menu);
+export default Menu;
