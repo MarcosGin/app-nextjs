@@ -18,4 +18,10 @@ function SubHeader(props) {
   );
 }
 
+SubHeader.defaultProps = {
+  search: true,
+  transmission: {},
+  socialLinks: []
+};
+
 export default SubHeader;
