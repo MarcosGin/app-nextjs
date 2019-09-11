@@ -15,6 +15,8 @@ const nextConfig = {
   webpack: (config, { isServer, webpack }) => {
     config.plugins = config.plugins || [];
     config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
+    config.resolve.alias["@Components"] = path.join(__dirname, "components");
+    config.resolve.alias["@Templates"] = path.join(__dirname, "templates");
 
     if (isServer) {
       const antStyles = /antd\/.*?\/style.*?/;
