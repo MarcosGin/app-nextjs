@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import BasePage from "../templates/layouts/BasePage";
+import BasePage from "@Templates/BasePage";
 
 class Index extends React.Component {
   static async getInitialProps() {
