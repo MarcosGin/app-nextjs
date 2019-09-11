@@ -3,7 +3,8 @@ export default (req, res) => {
     type: "Page",
     props: {
       head: {
-        title: "Dynamic load components"
+        title: "Home Page",
+        links: [{ rel: "shortcut icon", type: "image/x-icon", href: "/static/favicon.ico" }]
       }
     },
     children: [

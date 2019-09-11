@@ -9,9 +9,7 @@ class AppDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
-        </Head>
+        <Head></Head>
         <body>
           <Main />
           <NextScript />
