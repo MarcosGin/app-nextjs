@@ -7,9 +7,12 @@ const PageHead = ({ title, metatags, links }) => {
   return (
     <Head>
       {title && <title>{title}</title>}
-      {links.map((link, key) => {
-        return <link {...link} key={key}></link>;
-      })}
+      {metatags.map((meta, key) => (
+        <meta {...meta} key={key} />
+      ))}
+      {links.map((link, key) => (
+        <link {...link} key={key} />
+      ))}
     </Head>
   );
 };
