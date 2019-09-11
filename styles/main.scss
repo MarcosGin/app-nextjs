@@ -14,23 +14,3 @@
     border-left-color: #fff;
   }
 }
-
-body {
-  background-color: #ecf0f1 !important;
-}
-
-img {
-  width: 100%;
-}
-
-.container {
-  width: 970px;
-  margin: 0 auto;
-}
-
-@import "../components/Header/styles";
-
-@import "../components/Player/styles";
-
-@import "../components/Card/styles";
-@import "../components/CardList/styles";

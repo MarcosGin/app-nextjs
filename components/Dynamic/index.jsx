@@ -1,7 +1,7 @@
 import React from "react";
 import components from "../index";
 
-class DynamicComponent extends React.Component {
+class Dynamic extends React.Component {
   createElement = ({ type, props, children = [], container = {} }) => {
     const component = components[type];
     if (!component) return null; // Component not found
@@ -35,4 +35,4 @@ class DynamicComponent extends React.Component {
   }
 }
 
-export default DynamicComponent;
+export default Dynamic;
