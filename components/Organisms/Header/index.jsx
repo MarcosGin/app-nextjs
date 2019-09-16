@@ -14,7 +14,14 @@ const Header = () => (
         />
         <Navigation
           items={[
-            { text: "Item 1", link: "/item1" },
+            {
+              text: "Item 1 - Sub",
+              link: "/item1",
+              children: [
+                { text: "sub item 1", link: "/item5" },
+                { text: "sub item 2", link: "/item6" }
+              ]
+            },
             { text: "Item 2", link: "/item2" },
             { text: "Item 3", link: "/item3" },
             { text: "Item 4", link: "/item4" }

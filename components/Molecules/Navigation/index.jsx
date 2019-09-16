@@ -1,19 +1,20 @@
 import React from "react";
-import Link from "next/link";
-import { Menu, Dropdown, Icon } from "antd";
+import { Menu } from "antd";
+import NavigationDropdown from "./Dropdown";
+import NavigationSubMenu from "./SubMenu";
+import NavigationItem from "./Item";
 
-//Todo: Render SubMenu items, maybe is better separate the dropdown item in another component
 const Navigation = ({ items, limitItems, showDropdownMoreItems, dropdownMoreItems }) => {
   const onClick = ({ key }) => {};
 
   const renderItems = (items = []) =>
-    items.map(item => (
-      <Menu.Item key={item.link}>
-        <Link href="/[section]" as={item.link}>
-          <a>{item.text}</a>
-        </Link>
-      </Menu.Item>
-    ));
+    items.map(({ children, ...item }) => {
+      return children && children.length > 0 ? (
+        <NavigationSubMenu {...item} key={item.link} items={children} />
+      ) : (
+        <NavigationItem key={item.link} href="/[section]" link={item.link} text={item.text} />
+      );
+    });
 
   const dropdownOverlay = items => {
     return (
@@ -31,17 +32,13 @@ const Navigation = ({ items, limitItems, showDropdownMoreItems, dropdownMoreItem
         {renderItems(items.slice(0, limitItems))}
 
         {showDropdownMoreItems && moreItems.length > 0 && (
-          <Menu.Item key={dropdownMoreItems.key}>
-            <Dropdown
-              overlay={dropdownOverlay(moreItems)}
-              trigger={["click"]}
-              onVisibleChange={() => console.log("visible chage")}
-            >
-              <a>
-                <Icon type="bars" /> {dropdownMoreItems.title}
-              </a>
-            </Dropdown>
-          </Menu.Item>
+          <NavigationDropdown
+            title={dropdownMoreItems.title}
+            key={dropdownMoreItems.key}
+            overlay={dropdownOverlay(moreItems)}
+            triggers={["click"]}
+            onVisibleChange={() => console.log("on visible change")}
+          />
         )}
       </Menu>
       {/* language=CSS*/}
@@ -51,16 +48,26 @@ const Navigation = ({ items, limitItems, showDropdownMoreItems, dropdownMoreItem
           border-bottom-color: transparent;
           line-height: 26px;
         }
-        nav :global(.app-menu) :global(.app-menu-item) {
+        :global(.app-nav-submenu-popup) :global(.app-menu-sub) {
+          min-width: 0;
+        }
+        nav :global(.app-menu) :global(.app-menu-item),
+        nav :global(.app-menu) :global(.app-menu-submenu) {
           margin: 0 40px;
           padding: 0;
         }
+        nav :global(.app-menu) :global(.app-menu-submenu-title) {
+          padding: 0;
+        }
         nav :global(.app-menu) :global(.app-menu-item):hover,
-        nav :global(.app-menu) :global(.app-menu-item-selected) {
+        nav :global(.app-menu) :global(.app-menu-item-selected),
+        nav :global(.app-menu) :global(.app-menu-submenu):hover,
+        nav :global(.app-menu) :global(.app-menu-submenu-active) {
           border-bottom-color: #db0a40;
         }
 
-        nav :global(.app-menu) :global(a) {
+        nav :global(.app-menu) :global(a),
+        nav :global(.app-menu) :global(.app-menu-submenu-title) {
           color: #fff;
           font-size: 15px;
           text-transform: uppercase;
@@ -76,7 +83,7 @@ const Navigation = ({ items, limitItems, showDropdownMoreItems, dropdownMoreItem
 
 Navigation.defaultProps = {
   items: [],
-  limitItems: 4,
+  limitItems: 3,
   showDropdownMoreItems: true,
   dropdownMoreItems: {
     key: "keyformoreitems",
