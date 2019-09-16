@@ -13,6 +13,10 @@ module.exports = async ({ config, mode }) => {
 
   // Make whatever fine-grained changes you need
 
+
+  config.resolve.alias["@Components"] = path.join(__dirname, "../components");
+  config.resolve.alias["@Templates"] = path.join(__dirname, "../templates");
+
   config.module.rules.push({
     test: /\.scss$/,
     use: ["style-loader", "css-loader", "sass-loader"],
