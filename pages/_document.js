@@ -9,7 +9,9 @@ class AppDocument extends Document {
   render() {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet" />
+        </Head>
         <body>
           <Main />
           <NextScript />
