@@ -19,12 +19,26 @@ const Header = () => (
               link: "/item1",
               children: [
                 { text: "sub item 1", link: "/item5" },
-                { text: "sub item 2", link: "/item6" }
+                {
+                  text: "sub item 2",
+                  link: "/item6",
+                  children: [
+                    { text: "sub item 1", link: "/item9" },
+                    { text: "sub item 2", link: "/item10" }
+                  ]
+                }
               ]
             },
             { text: "Item 2", link: "/item2" },
             { text: "Item 3", link: "/item3" },
-            { text: "Item 4", link: "/item4" }
+            {
+              text: "Item dropwn4",
+              link: "/item4",
+              children: [
+                { text: "sub item 1", link: "/item7" },
+                { text: "sub item 2", link: "/item8" }
+              ]
+            }
           ]}
         />
         <Search />

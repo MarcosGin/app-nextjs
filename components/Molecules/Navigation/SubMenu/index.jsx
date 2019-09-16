@@ -1,21 +1,32 @@
 import React from "react";
 import { Icon, Menu } from "antd";
-import NavigationItem from "../Item";
+import { renderItems } from "../";
+import Link from "next/link";
 
-const NavigationSubMenu = ({ items, link, text, ...props }) => {
+const NavigationSubMenu = ({ items, link, href, text, showIcon, ...props }) => {
   const title = (
     <span>
-      <Icon type="down" /> {text}
+      <Link href={href} as={link}>
+        <a>
+          {showIcon && <Icon type="down" />}
+          {text}
+        </a>
+      </Link>
     </span>
   );
 
   return (
     <Menu.SubMenu {...props} title={title} popupClassName="app-nav-submenu-popup">
-      {items.map(item => (
-        <NavigationItem href="/[section]" key={item.link} link={item.link} text={item.text} />
-      ))}
+      {renderItems(items)}
     </Menu.SubMenu>
   );
+};
+
+NavigationSubMenu.defaultProps = {
+  items: [],
+  link: "",
+  text: "",
+  showIcon: false
 };
 
 export default NavigationSubMenu;
