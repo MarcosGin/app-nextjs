@@ -1,11 +1,8 @@
 import { storiesOf } from "@storybook/react";
 
 import Header from "./index";
+import AntdWrapper from "../../../stories/decorators/AntdWrapper";
 
-const stories = storiesOf("Header", module);
-
-stories.add("example", function() {
-    const story = <Header />;
-
-    return story;
-});
+storiesOf("Header", module)
+    .addDecorator(storyFn => <AntdWrapper>{storyFn()}</AntdWrapper>)
+    .add("example",() => <Header />);
