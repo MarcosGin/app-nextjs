@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu } from "antd";
+import { useRouter } from "next/router";
+import getActiveItem from "@Utils/getActiveItem";
 import NavigationDropdown from "./Dropdown";
 import NavigationSubMenu from "./SubMenu";
 import NavigationItem from "./Item";
@@ -20,6 +22,13 @@ export const renderItems = (items = [], showIcon = false) =>
   });
 
 const Navigation = ({ items, limitItems, showDropdownMoreItems, dropdownMoreItems }) => {
+  const router = useRouter();
+  let activeItem = "";
+  if (router.query.section) {
+    activeItem = getActiveItem(items, `/${router.query.section}`);
+  }
+  const [activeItems, setActiveItems] = useState([activeItem.link]);
+
   const onClick = ({ key }) => {};
 
   const dropdownOverlay = items => {
