@@ -16,7 +16,7 @@ module.exports = async ({ config, mode }) => {
 
   config.resolve.alias["@Components"] = path.join(__dirname, "../components");
   config.resolve.alias["@Templates"] = path.join(__dirname, "../templates");
-
+  config.resolve.alias["@Utils"] = path.join(__dirname, "../utils");
   config.module.rules.push({
     test: /\.scss$/,
     use: ["style-loader", "css-loader", "sass-loader"],
