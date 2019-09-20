@@ -15,4 +15,10 @@
   }
 }
 
+.container {
+  margin: 0 auto;
+  width: calc(100% - 0.05 * 2 * 100%);
+  min-width: 288px;
+  max-width: 1440px;
+}
 @import "../components/Organisms/Header/styles";
