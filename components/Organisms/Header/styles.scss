@@ -1,0 +1,13 @@
+.header {
+  color: #fff;
+  background: #001529;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 30px;
+  }
+  @import "../../Molecules/Navigation/styles";
+}

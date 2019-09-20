@@ -4,16 +4,24 @@ import { renderItems } from "../";
 import Link from "next/link";
 
 const NavigationSubMenu = ({ items, link, href, text, showIcon, ...props }) => {
-  const title = (
-    <span>
-      <Link href={href} as={link}>
+  const title =
+    link && href ? (
+      <span>
+        <Link href={href} as={link}>
+          <a>
+            {showIcon && <Icon type="down" />}
+            {text}
+          </a>
+        </Link>
+      </span>
+    ) : (
+      <span>
         <a>
           {showIcon && <Icon type="down" />}
           {text}
         </a>
-      </Link>
-    </span>
-  );
+      </span>
+    );
 
   return (
     <Menu.SubMenu {...props} title={title} popupClassName="app-nav-submenu-popup">

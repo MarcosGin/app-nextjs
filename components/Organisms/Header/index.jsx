@@ -44,20 +44,6 @@ const Header = () => (
         <Search />
       </div>
     </div>
-    {/*language=CSS*/}
-    <style jsx>{`
-      .header {
-        color: #fff;
-        background: #001529;
-      }
-      .header .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 80px;
-        padding: 0 30px;
-      }
-    `}</style>
   </header>
 );
 
