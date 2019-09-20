@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React /* { useState }*/ from "react";
 import { Menu } from "antd";
 import NavigationSubMenu from "./SubMenu";
 import NavigationItem from "./Item";
-import { useRouter } from "next/router";
-import getActiveItem from "../../../utils/getActiveItem";
+//import { useRouter } from "next/router";
+//import getActiveItem from "../../../utils/getActiveItem";
 
 export const renderItems = (items = [], showIcon = false) =>
   items.map(({ children, ...item }) => {
@@ -21,13 +21,13 @@ export const renderItems = (items = [], showIcon = false) =>
   });
 
 const Navigation = ({ items, limitItems, showMoreItems }) => {
-  const router = useRouter();
-  let activeItem = "";
-  if (router.query.section) {
-    activeItem = getActiveItem(items, `/${router.query.section}`);
-  }
-  const [selectedKeys, setSelectedKeys] = useState([activeItem.link]);
-  const onOpenChange = openKeys => setSelectedKeys([...openKeys]);
+  //const router = useRouter();
+  // let activeItem = "";
+  // if (router.query.section) {
+  //  activeItem = getActiveItem(items, `/${router.query.section}`);
+  //}
+  //const [selectedKeys, setSelectedKeys] = useState([activeItem.link]);
+  //const onOpenChange = openKeys => setSelectedKeys([...openKeys]);
 
   const onClick = ({ key }) => {};
   const moreItems = items.slice(limitItems);
@@ -37,11 +37,11 @@ const Navigation = ({ items, limitItems, showMoreItems }) => {
       <Menu
         mode="horizontal"
         onClick={onClick}
-        selectedKeys={selectedKeys}
-        openKeys={selectedKeys}
-        onOpenChange={onOpenChange}
-        forceSubMenuRender
-        getPopupContainer={parent => parent}
+        //selectedKeys={selectedKeys}
+        //openKeys={selectedKeys}
+        //onOpenChange={onOpenChange}
+        forceSubMenuRender // For SEO
+        getPopupContainer={parent => parent} // For SEO
       >
         {renderItems(items.slice(0, limitItems), true)}
 
