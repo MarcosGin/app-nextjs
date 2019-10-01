@@ -5,9 +5,11 @@ const ListCard = ({ items }) => {
   return (
     <section>
       <div className="container">
-        {items.map(item => (
-          <Card {...item} key={item.id} />
-        ))}
+        <div className="list-card">
+          {items.map(item => (
+            <Card {...item} key={item.id} />
+          ))}
+        </div>
       </div>
     </section>
   );

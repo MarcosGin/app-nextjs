@@ -1,0 +1,62 @@
+.card {
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  position: relative;
+
+  .thumbnail {
+    height: 200px;
+    overflow: hidden;
+
+    .date {
+      position: absolute;
+      background: #ff4d4f;
+      top: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      padding: 12.5px 0;
+      border-radius: 100%;
+      color: #fff;
+      text-align: center;
+      line-height: 1;
+      font-weight: 700;
+
+      .day {
+        font-size: 18px;
+        line-height: 1;
+      }
+      .month {
+        font-size: 12px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+    }
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .content {
+    padding: 10px 30px;
+    height: 280px;
+    position: relative;
+    .tags {
+      margin-bottom: 20px;
+    }
+    .title {
+      font-weight: 300;
+    }
+
+    .information {
+      position: absolute;
+      font-size: 12px;
+      padding: 10px 0;
+      bottom: 0;
+      width: calc(100% - 60px);
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.slider {
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+
+  .slider-buttons button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    background: transparent;
+    color: #fff;
+    font-size: 39px;
+    border: none;
+    outline: none;
+    margin-top: -30px;
+    cursor: pointer;
+
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}

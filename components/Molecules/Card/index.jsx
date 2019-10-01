@@ -1,28 +1,36 @@
 import React from "react";
+import { Tag, Icon } from "antd";
 
-const Card = ({ title, thumbnail }) => {
+const Card = ({ title, thumbnail, description, tags, date, author }) => {
   return (
     <div className="card">
       <div className="thumbnail">
         <div className="date">
-          <img src={thumbnail} alt={title} />
+          <div className="day">{date.day}</div>
+          <div className="month">{date.month}</div>
         </div>
+        <img src={thumbnail} alt={title} />
       </div>
       <div className="content">
-        <div className="category">category</div>
-        <h1 className="title" />
-        <h2 className="sub-title" />
-        <p className="description" />
-        <div className="information"></div>
+        <div className="tags">
+          {tags.map(tag => (
+            <Tag color="red" key={tag}>
+              {tag}
+            </Tag>
+          ))}
+        </div>
+        <h1 className="title">{title}</h1>
+        <p className="description">{description}</p>
+        <div className="information">
+          <span className="author">By {author}</span>
+          <div className="timestamp">
+            <span className="icon">
+              <Icon type="history" />{" "}
+            </span>
+            <span>4 minutes ago</span>
+          </div>
+        </div>
       </div>
-      {/*language=CSS*/}
-      <style jsx>{`
-        .card {
-          background: #fff;
-          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-          width: 270px;
-        }
-      `}</style>
     </div>
   );
 };
@@ -31,6 +39,9 @@ Card.defaultProps = {
   title: "",
   description: "",
   thumbnail: "",
+  section: "",
+  tags: [],
+  author: "Chris Brown",
   url: "",
   date: ""
 };
